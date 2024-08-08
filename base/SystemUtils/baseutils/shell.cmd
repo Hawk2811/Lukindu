@@ -4,12 +4,7 @@ goto usrprompt
 
 :usrprompt
 prompt %systemhostname%$$ 
-if exist  \rootfs\mach_kernel.exe (
-	set "PATH=%PATH%;%~d0\rootfs\bin;%PATH%"
-) else (
-	set "PATH=%PATH%;%~d0\bin;%PATH%"
-)
-
+set "PATH=%PATH%;%~d0\rootfs\bin;%PATH%"
 cmd /k
 goto end
 
@@ -17,11 +12,7 @@ goto end
 
 :rootprompt
 prompt %systemhostname%# 
-if exist \rootfs\mach_kernel.exe (
-	set "PATH=%PATH%;%~d0\rootfs\bin;%PATH%"
-) else (
-	set "PATH=%PATH%;%~d0\bin;%PATH%"
-)
+set "PATH=%PATH%;%~d0\rootfs\bin;%PATH%"
 cmd /k
 goto end
 
