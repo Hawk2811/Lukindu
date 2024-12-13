@@ -14,6 +14,8 @@ mkdir build\System\Services
 mkdir build\System\sysinfo
 copy base\sysinfo\*.plist build\System\sysinfo
 echo UFS Filesystem > build\dev\root
+echo Color Display > build\dev\display
+echo USB Device > build\dev\usb
 copy base\SystemServices\Lukit\initrc.cmd build\System\Services
 copy base\SystemServices\DriverLoader\drvloader.cmd build\System
 copy base\SystemServices\LoginService\loginService.cmd build\System\Services
@@ -27,6 +29,9 @@ mkdir build\usr
 mkdir build\bin
 mkdir build\boot
 mkdir build\boot\drivers
+%CC% base\drivers\LukinduSATAController.c -o build\boot\drivers\LukinduSATAController.exe -lsetupapi
+%CC% base\drivers\LukinduDisplayDriver.c -o build\boot\drivers\LukinduDisplayDriver.exe
+%CC% base\drivers\LukinduUSBDriver.c -o build\boot\drivers\LukinduUSBDriver.exe
 copy base\SystemUtils\baseutils\*.cmd build\bin
 copy base\SystemUtils\pkgutil\pkgutil.cmd build\bin\pkgutil.cmd
 copy base\SystemUtils\pkgutil\unzip.exe build\bin\unzip.exe

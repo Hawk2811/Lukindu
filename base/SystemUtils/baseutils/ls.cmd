@@ -3,6 +3,8 @@ if "%1" equ "" goto list
 if "%1" equ "-l" goto longlist
 if "%1" equ "-la" goto longAll
 if "%1" equ "-a" goto All
+if "%1" equ "-h" goto helplist
+if "%1" equ "--help" goto helplist
 goto listdir
 
 
@@ -30,21 +32,30 @@ goto end
 
 :All
 if "%2" equ "" goto AllNoDIR
-dir /a:h /b %2
+dir /a /b %2
 goto end
 
 :AllNoDIR
-dir /a:h /b
+dir /a /b
 goto end
 
 :longAll
 if "%2" equ "" goto longAllNoDIR
-dir /a:h %2
+dir /a %2
 goto end
 
 :longAllNoDIR
-dir /a:h
+dir /a
 goto end
 
+
+:helplist
+echo Lukindu Baseutils - ls command
+echo.
+echo "-a" - show all files
+echo "-l" - long listing
+echo "-la" - show all files with long listing
+echo "-h" or "--help" - show this help message
+goto end
 
 :end

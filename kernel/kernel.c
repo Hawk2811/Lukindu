@@ -21,6 +21,8 @@ void verboseboot();
 void singleuser();
 
 int main(int argc, char const *argv[]){//Main function
+    system("cls");
+    system("title Lukindu Operating System");
     if (argc < 2){//checks if it received arguments
         boot();
     } else {

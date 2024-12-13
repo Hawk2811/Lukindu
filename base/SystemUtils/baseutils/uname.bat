@@ -55,8 +55,11 @@ wmic cpu get name
 goto end
 
 :help
+echo Lukindu Baseutils - uname command
+echo.
+echo.
 echo Print certain system information. With no OPTION, same as -s.
-
+echo.
 echo -a, --all
 echo     print all information, in the following order, except omit -p and -i if unknown: 
 echo -s, --kernel-name
